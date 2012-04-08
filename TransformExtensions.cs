@@ -81,6 +81,12 @@ public static class TransformExtensions {
 		self.rotation = target.rotation;
 	}
 	
+	public static void SnapTo (this Transform self, GameObject target)
+	{
+		self.position = target.transform.position;
+		self.rotation = target.transform.rotation;
+	}
+	
 	public static void ParentTo (this Transform self, Transform parent)
 	{
 		self.parent = parent;
