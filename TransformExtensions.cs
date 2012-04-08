@@ -74,4 +74,21 @@ public static class TransformExtensions {
 		trans.position = new Vector3 (trans.position.x, trans.position.y, value);
 	}
 	
+	
+	public static void SnapTo (this Transform self, Transform target)
+	{
+		self.position = target.position;
+		self.rotation = target.rotation;
+	}
+	
+	public static void ParentTo (this Transform self, Transform parent)
+	{
+		self.parent = parent;
+	}
+	
+	public static void ParentTo (this Transform self, GameObject parent)
+	{
+		self.parent = parent.transform;
+	}
+	
 }
