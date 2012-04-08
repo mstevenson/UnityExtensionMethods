@@ -46,17 +46,32 @@ public static class TransformExtensions {
 	
 	
 	public static T GetComponentInParent<T> (this Transform transform)
-		where T : Component 
+		where T : Component
 	{
 		Transform current = transform;
 		while (current.parent) {
 			current = current.parent;
-			T component = current.GetComponent<T>();
+			T component = current.GetComponent<T> ();
 			if (component != null)
 				return component;
 		}
 		return null;
 	}
 	
+	
+	public static void SetX (this Transform trans, float value)
+	{
+		trans.position = new Vector3 (value, trans.position.y, trans.position.z);
+	}
+	
+	public static void SetY (this Transform trans, float value)
+	{
+		trans.position = new Vector3 (trans.position.x, value, trans.position.z);
+	}
+	
+	public static void SetZ (this Transform trans, float value)
+	{
+		trans.position = new Vector3 (trans.position.x, trans.position.y, value);
+	}
 	
 }
