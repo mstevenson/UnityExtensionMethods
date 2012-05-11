@@ -3,8 +3,9 @@ using System.Collections;
 
 public static class TransformExtensions
 {
-	
-	// Apply a transformation resembling a parenting relationship without setting up an actual parenting hierarchy
+	/// <summary>
+	/// Apply a transformation resembling a parenting relationship without setting up an actual parenting hierarchy.
+	/// </summary>
 	public static void SoftParent (this Transform child, Transform parent)
 	{
 		Vector3 offset = child.position - parent.position;
@@ -104,6 +105,17 @@ public static class TransformExtensions
 	public static void ParentTo (this Transform self, GameObject parent)
 	{
 		self.parent = parent.transform;
+	}
+	
+	/// <summary>
+	/// Sets the transform to be a child of the given transform, and modifies its position and rotation to match its new parent.
+	/// <seealso cref="SoftParent"/>
+	/// </summary>
+	public static void SnapAndParent (this Transform child, Transform parent)
+	{
+		transform.parent = parent;
+		transform.localPosition = Vector3.zero;
+		transform.localRotation = Quaternion.identity;
 	}
 	
 }
