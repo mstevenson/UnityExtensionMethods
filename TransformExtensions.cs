@@ -111,11 +111,11 @@ public static class TransformExtensions
 	/// Sets the transform to be a child of the given transform, and modifies its position and rotation to match its new parent.
 	/// <seealso cref="SoftParent"/>
 	/// </summary>
-	public static void SnapAndParent (this Transform child, Transform parent)
+	public static void SnapAndParent (this Transform self, Transform parent)
 	{
-		transform.parent = parent;
-		transform.localPosition = Vector3.zero;
-		transform.localRotation = Quaternion.identity;
+		self.parent = parent;
+		self.localPosition = Vector3.zero;
+		self.localRotation = Quaternion.identity;
 	}
 	
 }
