@@ -3,14 +3,9 @@ using System.Collections;
 
 public static class TransformExtensions
 {
-<<<<<<< HEAD
 	/// <summary>
 	/// Apply a transformation resembling a parenting relationship without setting up an actual parenting hierarchy.
 	/// </summary>
-=======
-	
-	// Apply a transformation resembling a parenting relationship without setting up an actual parenting hierarchy
->>>>>>> Added camera horizontal fov calculation, local transformations, and automatic network serialization of public fields
 	public static void SoftParent (this Transform child, Transform parent)
 	{
 		Vector3 offset = child.position - parent.position;
@@ -89,9 +84,7 @@ public static class TransformExtensions
 	{
 		trans.position = new Vector3 (trans.position.x, trans.position.y, value);
 	}
-	
-<<<<<<< HEAD
-=======
+
 	public static void SetLocalPositionX (this Transform trans, float value)
 	{
 		trans.localPosition = new Vector3 (value, trans.localPosition.y, trans.localPosition.z);
@@ -107,7 +100,6 @@ public static class TransformExtensions
 		trans.localPosition = new Vector3 (trans.localPosition.x, trans.localPosition.y, value);
 	}
 	
->>>>>>> Added camera horizontal fov calculation, local transformations, and automatic network serialization of public fields
 	public static void SnapTo (this Transform self, Transform target)
 	{
 		self.position = target.position;
