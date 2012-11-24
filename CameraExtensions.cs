@@ -22,10 +22,8 @@ public static class CameraExtensions {
 
 	public static float HorizontalFieldOfView (this Camera cam)
 	{
-		float radAngle = cam.fov * Mathf.Deg2Rad;
-		float radHFov = 2 * Mathf.Atan (Mathf.Tan (radAngle / 2)) * cam.aspect;
-		float hFov = Mathf.Rad2Deg * radHFov;
-		return hFov;
+		float side = Mathf.Tan (cam.fieldOfView * Mathf.Deg2Rad);
+		return Mathf.Atan (side * cam.aspect) * Mathf.Rad2Deg;
 	}
 	
 }
