@@ -4,7 +4,7 @@ using System.Collections;
 public static class MonobehaviourExtensions
 {
 	public static void AutoSerializeNetworkView<T> (this MonoBehaviour self, BitStream stream, NetworkMessageInfo info)
-		where T : ShipSystem
+		where T : MonoBehaviour
 	{
 		var fields = typeof(T).GetFields ();
 		foreach (var f in fields) {
