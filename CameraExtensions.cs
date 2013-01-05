@@ -19,5 +19,11 @@ public static class CameraExtensions {
 		
 		return new Ray (nearPoint, farPoint);
 	}
+
+	public static float HorizontalFieldOfView (this Camera cam)
+	{
+		float side = Mathf.Tan (cam.fieldOfView * Mathf.Deg2Rad);
+		return Mathf.Atan (side * cam.aspect) * Mathf.Rad2Deg;
+	}
 	
 }
