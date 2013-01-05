@@ -11,4 +11,19 @@ public static class Vector3Extensions {
 		return v.x > v.y ? (v.x > v.z ? v.x : (v.y > v.z ? v.y : v.z)) : (v.y > v.z ? v.y : (v.x > v.z ? v.x : v.z));
 	}
 	
+	public static Vector3 WithX (this Vector3 vec, float value)
+	{
+		return new Vector3 (value, vec.y, vec.z);
+	}
+	
+	public static Vector3 WithY (this Vector3 vec, float value)
+	{
+		return new Vector3 (vec.x, value, vec.z);
+	}
+	
+	public static Vector3 WithZ (this Vector3 vec, float value)
+	{
+		return new Vector3 (vec.x, vec.y, value);
+	}
+	
 }
