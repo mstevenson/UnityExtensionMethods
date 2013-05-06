@@ -65,4 +65,38 @@ public static class GameObjectExtensions {
 		        select (T)(object)a
 		        ).ToArray();
 	}
+
+	/// <summary>
+	/// Finds the GameObject within a collection that is nearest to the given point.
+	/// </summary>
+	public static GameObject NearestTo (this IEnumerable<GameObject> components, Vector3 position)
+	{
+		float dist = Mathf.Infinity;
+		GameObject target = null;
+		foreach (var c in components) {
+			float newDist = Vector3.SqrMagnitude (position - c.transform.position);
+			if (newDist < dist) {
+				dist = newDist;
+				target = c;
+			}
+		}
+		return target;
+	}
+
+	/// <summary>
+	/// Finds the GameObject within a collection that is farthest from the given point.
+	/// </summary>
+	public static GameObject FarthestFrom (this IEnumerable<GameObject> components, Vector3 position)
+	{
+		float dist = 0;
+		GameObject target = null;
+		foreach (var c in components) {
+			float newDist = Vector3.SqrMagnitude (position - c.transform.position);
+			if (newDist > dist) {
+				dist = newDist;
+				target = c;
+			}
+		}
+		return target;
+	}
 }
